@@ -1,0 +1,19 @@
+{
+  "name": "timetabler",
+  "version": "1.0.0",
+  "description": "Timetable maker application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdwinRoosevelt/TimeTabler.git"
+  },
+  "author": "Edwin Roosevelt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EdwinRoosevelt/TimeTabler/issues"
+  },
+  "homepage": "https://github.com/EdwinRoosevelt/TimeTabler#readme"
+}
