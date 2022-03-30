@@ -31,22 +31,57 @@ class TimeTable {
   }
 
   allocate(subjectAndConstrains) {
-      const {subName, constrains} = subjectAndConstrains
-      var i = 1;
-      while(i <= constrains.type1) {
-          console.log("hi")
-          i++
-      }
+    const { subName, constrains } = subjectAndConstrains;
+    var i = 1;
+    var round = 1;
+    while (i <= constrains.type1) {
+        const {x, y} = this.randomSlot(constrains.type3);
+        var randomIndex = `${x}${y}`;
+      
+        if (this.slots[randomIndex] === undefined) {
+            this.slots[randomIndex] = subName;
+            i++;
+
+            if (constrains.type4) {
+                if (!this.checkType3(x, y, round)) {
+                  this.slots[randomIndex] = undefined;
+                  i--;
+                }
+            }
+        }
+
+        if ((i-1) % constrains.type3[1] == 0) {
+            console.log(i, constrains.type3[1]);
+            round = (i / constrains.type3[1]) + 1;
+        }
+    }
+    console.log(`Allocation Complete: ${i} ${round}`);
   }
 
-  type2Check(type, value, currentSlot) {
-    if (type === 2) {
-      var res = 0;
-      for (var i = 1; i <= this.daysPerWeek; i++) {
-        if (this.slots[`${i}${j}`] === "English") res += 1;
+  //pending
+  checkType3(x, y, round) {
+      var subjectsPerDay = 0;
+      for (var j = 1; j <= this.periodsPerDay; j++) {
+        if (this.slots[`${x}${j}`] === "English") subjectsPerDay += 1;
       }
-      return true;
-    }
+      if (subjectsPerDay <= round) return true
+      return false;
+  }
+
+  randomSlot(arr) {
+    var x = this.randomChoice(this.fillRange(arr[0], arr[1]));
+    var y = this.randomChoice(this.fillRange(arr[2], arr[3]));
+    return {x, y}
+  }
+
+  fillRange(min, max) {
+    var res = [];
+    for (var i = min; i <= max; i++) res.push(i);
+    return res;
+  }
+
+  randomChoice(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
   }
 
   randomNumber(min, max) {
