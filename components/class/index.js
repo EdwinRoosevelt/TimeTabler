@@ -6,20 +6,32 @@ const subjectAndConstrains = [
   {
     subName: "English",
     constrains: {
-      type1: 10,
+      type1: 7,
       type2: [1, 2],
-      type3: [1, 5, 1, 4],
+      type3: { x: [1, 2, 3, 4, 5], y: [1, 2, 3, 4] },
       type4: true,
     },
+    availableSlots: 20,
   },
   {
     subName: "Maths",
     constrains: {
-      type1: 3,
+      type1: 11,
       type2: [1, 2],
-      type3: [1, 4],
+      type3: { x: [1, 2, 3, 4, 5], y: [1, 2, 3, 4, 5, 6, 7, 8] },
+      type4: false,
+    },
+    availableSlots: 40,
+  },
+  {
+    subName: "PT",
+    constrains: {
+      type1: 2,
+      type2: [1, 2],
+      type3: { x: [1, 2, 3, 4, 5], y: [7, 8] },
       type4: true,
     },
+    availableSlots: 10,
   },
 ];
     
@@ -30,7 +42,10 @@ var a = new TimeTable(daysPerWeek, periodsPerDay, subjectAndConstrains);
 //a.allocate(subjectAndConstrains[1]);
 //console.log(a.slots)
 //console.log(a.randomSlot(subjectAndConstrains[0].constrains.type3))
-a.allocate(subjectAndConstrains[0])
+// a.allocate(subjectAndConstrains[2]);
+// a.allocate(subjectAndConstrains[0]);
+a.allocate(subjectAndConstrains[1])
+
 // a.slots[`${1}${2}`] = "English"
 // a.slots[`${1}${6}`] = "English"
 // a.slots[`${1}${8}`] = "English"

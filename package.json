@@ -1,23 +1,20 @@
 {
   "name": "timetabler",
-  "version": "1.0.0",
-  "description": "Timetable maker application",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EdwinRoosevelt/TimeTabler.git"
-  },
-  "author": "Edwin Roosevelt",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/EdwinRoosevelt/TimeTabler/issues"
-  },
-  "homepage": "https://github.com/EdwinRoosevelt/TimeTabler#readme",
   "dependencies": {
-    "npm": "^8.5.5",
-    "shelljs": "^0.8.5"
+    "next": "12.1.2",
+    "react": "18.0.0",
+    "react-dom": "18.0.0"
+  },
+  "devDependencies": {
+    "eslint": "8.12.0",
+    "eslint-config-next": "12.1.2"
   }
 }
